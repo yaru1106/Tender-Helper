@@ -1,0 +1,415 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="{% static 'sierra/img/fav-icon.png' %}" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>標案搜尋</title>
+
+    <!-- Icon css link -->
+
+    <link href="{% static 'sierra/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{% static 'sierra/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="{% static 'sierravendors/revolution/css/settings.css' %}" rel="stylesheet">
+    <link href="{% static 'sierra/vendors/revolution/css/layers.css' %}" rel="stylesheet">
+    <link href="{% static 'sierra/vendors/revolution/css/navigation.css' %}" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="{% static 'sierra/vendors/owl-carousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'sierra/vendors/magnify-popup/magnific-popup.css' %}" rel="stylesheet">
+
+
+    <link href="{% static 'sierra/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'sierra/css/responsive.css' %}" rel="stylesheet">
+
+    <title>標案搜尋</title>
+
+    <!-- Icon css link -->
+    <!-- Bootstrap -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    
+
+    <!-- ADDED -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+
+    <!-- 這行先慢一點，會讓我的東西跑版 -->
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.css">-->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109921688-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109921688-1');
+    </script>
+
+    
+
+    <!-- ADDED -->
+
+</head>
+    <body>
+
+        <style>
+            
+                    /*表格的東東*/
+                    dl {
+                    margin-bottom: 20px;
+                   
+                    }
+
+                    dt,
+                    dd {
+                    line-height: 20px;
+                    
+                    
+                    }
+
+                    dt {
+                    font-weight: bold;
+                    
+                    }
+
+                    dd {
+                    margin-left: 10px;
+                    }
+
+                    .dl-horizontal {
+                    *zoom: 1;
+                    }
+
+                    .dl-horizontal:before,
+                    .dl-horizontal:after {
+                    display: table;
+                    line-height: 0;
+                    content: "";
+                    }
+
+                    .dl-horizontal:after {
+                    clear: both;
+                    }
+
+                    .dl-horizontal dt {
+                    float: left;
+                    width: 160px;
+                    overflow: hidden;
+                    clear: left;
+                    text-align: right;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    }
+
+                    .dl-horizontal dd {
+                    margin-left: 180px;
+                    }
+
+                    /*連結標籤*/
+                    .nav-tabs,
+                    .nav-pills {
+                    *zoom: 1;
+                    }
+
+                    .nav-tabs:before,
+                    .nav-pills:before,
+                    .nav-tabs:after,
+                    .nav-pills:after {
+                    display: table;
+                    line-height: 0;
+                    content: "";
+                    }
+
+                    .nav-tabs:after,
+                    .nav-pills:after {
+                    clear: both;
+                    }
+
+                    .nav-tabs > li,
+                    .nav-pills > li {
+                    float: left;
+                    }
+
+                    .nav-tabs > li > a,
+                    .nav-pills > li > a {
+                    padding-right: 12px;
+                    padding-left: 12px;
+                    margin-right: 2px;
+                    line-height: 14px;
+                    }
+
+                    .nav-tabs {
+                    border-bottom: 1px solid #ddd;
+                    }
+
+                    .nav-tabs > li {
+                    margin-bottom: -1px;
+                    }
+
+                    .nav-tabs > li > a {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    line-height: 20px;
+                    border: 1px solid transparent;
+                    -webkit-border-radius: 4px 4px 0 0;
+                        -moz-border-radius: 4px 4px 0 0;
+                            border-radius: 4px 4px 0 0;
+                    }
+
+                    .nav-tabs > li > a:hover {
+                    border-color: #eeeeee #eeeeee #dddddd;
+                    }
+
+                    .nav-tabs > .active > a,
+                    .nav-tabs > .active > a:hover {
+                    color: #555555;
+                    cursor: default;
+                    background-color: #ffffff;
+                    border: 1px solid #ddd;
+                    border-bottom-color: transparent;
+                    }
+
+        </style>
+
+        <!--================Header Menu Area =================-->
+        <header class="main_menu_area">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="{% static 'sierra/img/logo.png' %}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                    <ul class="navbar-nav" >
+                        <li class="nav-item"><a class="nav-link" href="/home/" style="font-family: Microsoft JhengHei;">首頁</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/tendsearch/" style="font-family: Microsoft JhengHei;">標案搜尋</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/competitor/" style="font-family: Microsoft JhengHei;">競爭者分析</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/predict/" style="font-family: Microsoft JhengHei;">潛在競爭者</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="/home/example/" style="font-family: Microsoft JhengHei;">企業分析範例</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--================End Header Menu Area =================-->
+
+        <!--================頁面標題=================-->
+        <section class="banner_area">
+            <div class="container">
+                <div class="banner_inner_text">
+                  <h2>Tender Search</h2>
+                  <p style="font-family: Microsoft JhengHei;">&nbsp;透過名稱、日期或公司名稱搜尋標案</p>
+                </div>
+            </div>
+        </section>
+        <!--================End 頁面標題 =================-->
+
+         <!--================公司搜尋頁面 =================-->
+         <section class="service_feature">
+            <div class="container">
+                    <!--==搜尋框==-->
+
+                    <div class="search_box">
+                        <ui>
+                                <div class="search_bar">
+                                    <form method="get" action="/home/search/" style="font-family: Microsoft JhengHei;font-size: 18px;">
+                                        <li><strong>關鍵字搜尋：　</strong><input type="type" name="query" placeholder="輸入關鍵字">
+                                        <button type="submit">搜尋</button></li>
+                                    </form>
+                                </div>
+
+                                <div class="search_bar">
+                                    <form method="get" action="/home/date/" style="font-family: Microsoft JhengHei;font-size: 18px;">
+                                        <li><strong>日期搜尋：　　</strong><input type="type" name="date" placeholder="輸入日期">
+                                        <button type="submit">搜尋</button></li>
+                                    </form>
+                                </div>
+
+                                <div class="search_bar">
+                                    <form method="get" action="/home/searchbycompany/" style="font-family: Microsoft JhengHei;font-size: 18px;">
+                                        <li><strong>公司名稱搜尋：</strong><input type="type" name="query" placeholder="輸入公司全名">
+                                        <button type="submit">搜尋</button></li>
+                                    </form>
+                                </div>
+
+                        </ui>
+
+                    </div>
+                    <div class="show_text" style="width: 50%;" >
+                        <section class="world_map_area p_100"  >
+                            <br>
+                                <div class="world_map_inner" style="width: 550px;padding-top: 150px;">
+                                    <div class="bd-callout" style="padding-left: 40px;padding-bottom: 20px;" >
+                                       
+                                       
+                                        <h6 style="font-family: Microsoft JhengHei;"><strong>使用方式</strong></h6><br>
+                                        <h6 style="font-family: Microsoft JhengHei;">1. 透過關鍵字瀏覽標案內容<br>　例如：「智慧支付整合平台建置委外服務採購案」</h6><br>
+                                        <h6 style="font-family: Microsoft JhengHei;">2. 透過日期瀏覽當日所有公告<br>　例如：「20190308」</h6><br>
+                                        <h6 style="font-family: Microsoft JhengHei;">3. 透過機關瀏覽相關標案<br>　例如：「盈盈工程行」、「盈芊企業社(合夥)」等<br><br>＊請留意需輸入完整公司名稱，以利查詢。</h6>
+                                    </div>
+                                   
+                                </div>
+
+                        </section>
+                </div>
+            </div>
+        </section>
+        <!--================End 公司搜尋頁面 =================-->
+
+
+         <!--================標案分布圖表 =================-->
+         <section class="we_company_area p_100">
+            <div class="container" style="width: 80%;">
+
+            </div>
+
+        </section>
+        <!--================End 標案分布圖表 =================-->
+
+        <!--================標案分布圖表 =================-->
+        <section class="we_company_area p_100">
+
+            <div class="container" style="width: 90%;padding-top: 20px;">
+
+                    <div class="tender_history" style="text-align: center;font-size: 16px;padding: 20px;font-family: Microsoft JhengHei;">
+
+                        <div style="font-size: 18px;">
+                            <div>
+                                <img src="{% static 'sierra/img/icon/title-icon.png' %}" alt="" style="padding-bottom: 20px;"><br>
+                                <h1 id="unit_name">機關：</h1>
+                                <h2 id="job_number">標案編號：</h2>
+
+                            </div>
+                        </div>
+                        <hr size="10px"  align="center" width="100%" style="padding-bottom: 30px;">
+                        
+                        <ul id="record-list" class="nav nav-tabs" style="padding-bottom: 10px;">
+                        </ul>
+
+                        <div id="record-tables" >
+                        </div>
+                    </div>
+                    <script>
+                        var unit_id = document.location.search.match(/unit_id=([^&]*)/)[1];
+                        var job_number = document.location.search.match(/job_number=([^&]*)/)[1];
+                        var date = false;
+                        if (document.location.search.match(/date=([^&]*)/)) {
+                            date = document.location.search.match(/date=([^&]*)/)[1];
+                        }
+                        var filename = false;
+                        if (document.location.search.match(/filename=([^&]*)/)) {
+                            filename = document.location.search.match(/filename=([^&]*)/)[1];
+                        }
+                        
+                        $('#api-url').text('https://pcc.g0v.ronny.tw/api/tender?unit_id=' + encodeURIComponent(unit_id) + '&job_number=' + encodeURIComponent(job_number));
+                        $.get('https://pcc.g0v.ronny.tw/api/tender?unit_id=' + encodeURIComponent(unit_id) + '&job_number=' + encodeURIComponent(job_number), function(ret){
+                            $('#unit_name').text('機關：' + ret.unit_name);
+                            $('#job_number').text('標案編號：' + job_number);
+                            for (var i = 0; i < ret.records.length; i ++) {
+                                var record = ret.records[i];
+                                var url = '/home/tender/?' + [
+                                    'unit_id=' + encodeURIComponent(unit_id),
+                                    'job_number=' + encodeURIComponent(job_number),
+                                    'date=' + encodeURIComponent(record.date),
+                                    'filename=' + encodeURIComponent(record.filename)
+                                ].join('&');
+                        
+                                $('#record-list').append($('<li role="presentation"></li>').append(
+                                    $('<a></a>').attr('href', url).text(record.date + ' ' + record.brief.type).data('id', record.date + record.filename)
+                                ).attr('id', 'record-list-' + record.date + record.filename));
+                                var dl_dom = $('<dl></dl>').addClass('dl-horizontal').attr('id', 'record-table-' + record.date + record.filename);
+                        
+                                for (var k in record.detail) {
+                                    dl_dom.append($('<dt></dt>').text(k));
+                                    if (k == 'url') {
+                                        dl_dom.append($('<dd></dd>').append($('<a></a>').attr('href', record.detail[k]).text(record.detail[k])));
+                                    } else if (!record.detail[k]) {
+                                        dl_dom.append($('<dd></dd>').html('&nbsp;'));
+                                    } else {
+                                        dl_dom.append($('<dd></dd>').text(record.detail[k]));
+                                    }
+                                }
+                                $('#record-tables').append(dl_dom);
+                            }
+                            $('#record-tables dl').hide();
+                        
+                            if (date && filename) {
+                                $('#record-list-' + date + filename).addClass('active');
+                                $('#record-table-' + date + filename).show();
+                            } else {
+                                $('#record-list li:last').addClass('active');
+                                $('#record-tables dl:last').show();
+                            }
+                        }, 'json');
+                        </script>
+                        
+            </div>
+
+
+
+        </section>
+        <!--================End 標案分布圖表 =================-->
+
+
+        <!--================Footer Area =================-->
+        <footer class="footr_area">
+
+            <div class="footer_copyright">
+                <div class="container">
+                    <div class="float-sm-left">
+                        <h5><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></h5>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+        <!--================End Footer Area =================-->
+
+
+
+        <link href="{% static 'sierra/vendors/revolution/css/layers.css' %}" rel="stylesheet">
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'sierra/js/jquery-3.2.1.min.js' %}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'sierra/js/popper.min.js' %}"></script>
+        <script src="{% static 'sierra/js/bootstrap.min.js' %}"></script>
+        <!-- Rev slider js -->
+        <script src="{% static 'sierra/vendors/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+        <!-- Extra plugin css -->
+        <script src="{% static 'sierra/vendors/counterup/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/counterup/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/counterup/apear.js' %}"></script>
+        <script src="{% static 'sierra/vendors/counterup/countto.js' %}"></script>
+        <script src="{% static 'sierra/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/magnify-popup/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'sierra/js/smoothscroll.js' %}"></script>
+        <script src="{% static 'sierra/vendors/circle-bar/circle-progress.min.js' %}"></script>
+        <script src="{% static 'sierra/vendors/circle-bar/plugins.js' %}"></script>
+
+        <script src="{% static 'sierra/js/circle-active.js' %}"></script>
+        <script src="{% static 'sierra/js/theme.js' %}"></script>
+
+    </body>
+</html>
